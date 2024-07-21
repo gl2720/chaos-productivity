@@ -3,11 +3,15 @@
     "name": "Chaos",
     "description": "Description",
     "version": "1.0",
+    "icons": {
+      "48": "milky-way_1f30c.png",
+      "96": "milky-way_1f30c.png"
+    },
     "action": {
       "default_popup": "hello.html"
     },
     "background": {
       "service_worker": "background.js"
     },
-    "permissions": ["scripting"]
+    "permissions": ["scripting", "notifications"]
 }
