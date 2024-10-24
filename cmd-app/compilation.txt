@@ -1,0 +1,8 @@
+LIB /DEF:sqlite3.def
+* creates .lib and .ext files (x86)
+
+cl /I libraries /Fe"chaos" /EHsc main.cpp dbmanager.cpp libraries\sqlite3.lib
+* includes libraries folder for dependencies
+* name output file as 'chaos.exe' (main automatically opens. mouse options.)
+
+* this method of doing things might not fully work (it compiles fine but using SQLite functions make it angry and produce no output)

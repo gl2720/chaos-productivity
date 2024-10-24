@@ -1,0 +1,6 @@
+﻿  dbmanager.cpp
+  main.cpp
+  Generating Code...
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/OPT:ICF' specification
+LINK : warning LNK4067: ambiguous entry point; selected 'mainCRTStartup'
+  cmd-app.vcxproj -> C:\Users\Grace Lee\Documents\Personal\chaos-productivity\cmd-app\x64\Release\chaos.exe
