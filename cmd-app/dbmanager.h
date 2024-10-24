@@ -5,47 +5,36 @@
 
 class DbManager {
     public:
-    sqlite3* dbConnection;
-    //int numResults = 0;
-    //char* lastQuery;
+        sqlite3* dbConnection;
+        //int numResults = 0;
+        //char* lastQuery;
 
-    DbManager(char* dbName);
-    ~DbManager();
+        DbManager(char* dbName);
+        ~DbManager();
 
-    // tasks, focus sessions, routines (time-based yes/no achievements. as opposed to completion-based achievements (tasks))
-    // keep completed things in their own db and include an Upcoming db with all their ids?
+        // tasks, focus sessions, routines (time-based yes/no achievements. as opposed to completion-based achievements (tasks))
+        // keep completed things in their own db and include an Upcoming db with all their ids?
+        // should probably have different dbs for user stuff and character stuff. but maybe keep the character stuff hardcoded
+        // until i figure out how to put it in logically
 
-    // multiple callbacks to handle... stuff (callbacks are generally static functions)
+        // tasks
+        void loadTasks(); // may get more specific in the future
+        Task getTask(int i);
+        int putTask(Task t); // new or update
+        int removeTask(Task t);
 
-    //getItem(int i); // re-executes query but returns said item (in some form)
-    //putItem(); // puts it into the database. i guess
-    //updateItem(); // yeah...
-    //removeItem();
+        // sessions
+        // start, stop, pause
 
-    // tasks
-    void loadTasks(); // may get more specific in the future
-    Task getTask(int i);
-    int putTask(Task t); // new or update
-    int removeTask(Task t);
+        // routines
+        // load routines, complete
 
-    // sessions
-    // start, stop, pause
-
-    // routines
-    // load routines, complete
-
-    // tasks
-    // int newTask();
-    // int editTask();
-    // int removeTask();
-    // Task* loadCompleted();
-    // Task* loadAllTasks();
-
-    // character properties (alt file storage types: ini file, but why would i make it so complicated for no reason)
-    // char* getValue(char* key);
-    // char* putValue(char* key);
+        // character properties (alt file storage types: ini file, but why would i make it so complicated for no reason)
+        // char* getValue(char* key);
+        // char* putValue(char* key);
 
     private:
-    int newTables(); // this isn't really necessary in the end, probably just pre-create everything you need
-    // int newUser(char* userName);
+        int execQuery(std::string query, int (*callback)(void*, int, char**, char**), void* data);
+        int newTables(); // this isn't really necessary in the end, probably just pre-create everything you need
+        // int newUser(char* userName);
 };
